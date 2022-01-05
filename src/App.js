@@ -1,9 +1,7 @@
 import "./App.css";
 
 import { useState, useEffect } from "react";
-import UserList from "./UserList";
 import Input from "./Input";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "./redux/actions";
 
@@ -11,11 +9,6 @@ export default function App() {
 
   const dispatch = useDispatch();
   const users = useSelector(state => state.users);
-  console.log(users);
-  
-  // OLD
-
-  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     dispatch(fetchUsers())
@@ -43,10 +36,6 @@ export default function App() {
           inputValue={inputValue}
         />
       )}
-      {/* <ul>{userData && <UserList userData={newUserData} />}</ul> */}
-      <div>
-        <button onClick={() => dispatch(fetchUsers())}>Get users</button>
-      </div>
       <div>
         {users.map(user => 
           <div style={{margin: 10}}>{user.name}</div>)}
