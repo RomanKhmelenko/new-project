@@ -5,7 +5,7 @@ import UserList from "./UserList";
 import Input from "./Input";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "./index";
+import { fetchUsers } from "./redux/actions";
 
 export default function App() {
 
